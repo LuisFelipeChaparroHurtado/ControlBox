@@ -1,0 +1,89 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    max-width: 100%;
+  }
+  
+  .panel {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .panel-heading h3 {
+    text-align: center;
+    color: #343a40;
+  }
+  
+  .panel-body {
+    padding: 20px;
+  }
+  
+  .form-label {
+    font-weight: 600;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+  }
+  
+  #emailHelp {
+    color: #6c757d;
+  }
+  
+  #forget {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+  
+  #forget:hover {
+    color: #0056b3;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .text-muted {
+    color: #6c757d !important;
+  }
+  
+  .text-center a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .text-center a:hover {
+    color: #0056b3;
+  }
+  
+  .input-group-append button {
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+  }
+  
+
+  .error {
+    border-color: red;
+  }
+  

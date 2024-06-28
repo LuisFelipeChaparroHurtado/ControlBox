@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Contenedor de la imagen al lado -->
+    <div
+      class="col-md-2 d-flex justify-content-center align-items-center vh-100 bg-light"
+    ></div>
+
+    <!-- Contenido principal -->
+    <main class="col-md-10 ms-sm-auto col-lg-">
+        <div class="chartjs-size-monitor">
+          <div class="chartjs-size-monitor-expand">
+            <div class=""></div>
+          </div>
+          <div class="chartjs-size-monitor-shrink">
+            <div class=""></div>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+        >
+          <h1 class="h2">Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                Share
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                Export
+              </button>
+            </div>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary dropdown-toggle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-calendar align-text-bottom"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              This week
+            </button>
+          </div>
+        </div>
+  
+        <div class="table-responsive">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
+            <h2 class="d-inline-block me-3">Books List</h2>
+            <div class="input-group" style="max-width: 400px">
+              <input
+                type="text"
+                class="form-control"
+                id="filterInput"
+                placeholder="Ingrese término de búsqueda"
+                aria-label="Search"
+                aria-describedby="search-addon"
+              />
+            </div>
+          </div>
+  
+          <div class="book-details-container">
+            <h2>{{ book?.titulo }}</h2>
+            <p><strong>Autor:</strong> {{ book?.autor }}</p>
+            <p><strong>Categoría:</strong> {{ book?.categoria }}</p>
+            <p><strong>Resumen:</strong> {{ book?.resumen }}</p>
+  
+            <h3>Reseñas</h3>
+            <div *ngIf="reviews.length > 0; else noReviews" class="review-panel">
+                <div *ngFor="let review of reviews" class="review">
+                  <p><strong>Usuario:</strong> {{ review.user?.username }}</p>
+                  <p><strong>Calificación:</strong> {{ review.calificacion }}</p>
+                  <p><strong>Comentario:</strong> {{ review.comentario }}</p>
+                </div>
+              </div>
+              
+              <ng-template #noReviews>
+                <p>No hay reseñas disponibles.</p>
+              </ng-template>
+  
+            <h3>Añadir una reseña</h3>
+            <form (ngSubmit)="submitReview()">
+              <div class="form-group">
+                <label for="comentario">Comentario:</label>
+                <textarea
+                  id="comentario"
+                  [(ngModel)]="newReview.comentario"
+                  name="comentario"
+                  class="form-control"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="calificacion">Calificación:</label>
+                <input
+                  type="number"
+                  id="calificacion"
+                  [(ngModel)]="newReview.calificacion"
+                  name="calificacion"
+                  class="form-control"
+                  min="1"
+                  max="5"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar Reseña</button>
+            </form>
+          </div>
+        </div>
+      </main>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-4 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Update user</h3>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="updateUserForm" (ngSubmit)="onUpdate()">
+              <div class="mb-3">
+                <label for="exampleInputFirstName" class="form-label"
+                  >First Name</label
+                >
+                <input
+                  formControlName="firstName"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputFirstName"
+                  placeholder="Enter your first name"
+                  [class.is-invalid]="
+                    updateUserForm.controls['firstName'].touched &&
+                    updateUserForm.controls['firstName'].invalid
+                  "
+                />
+                <small
+                  *ngIf="
+                    updateUserForm.controls['firstName'].touched &&
+                    updateUserForm.controls['firstName'].invalid
+                  "
+                  class="invalid-feedback"
+                  class="form-text text-danger"
+                >
+                  *FirstName is required
+                </small>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputLastName" class="form-label"
+                  >Last Name</label
+                >
+                <input
+                  formControlName="lastName"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputLastName"
+                  placeholder="Enter your last name"
+                  [class.is-invalid]="
+                    updateUserForm.controls['lastName'].touched &&
+                    updateUserForm.controls['lastName'].invalid
+                  "
+                />
+                <small
+                  *ngIf="
+                    updateUserForm.controls['lastName'].touched &&
+                    updateUserForm.controls['lastName'].invalid
+                  "
+                  class="form-text text-danger"
+                >
+                  *LastName is required
+                </small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter your email"
+                  [class.is-invalid]="
+                    updateUserForm.controls['email'].touched &&
+                    updateUserForm.controls['email'].invalid
+                  "
+                />
+                <small
+                  *ngIf="
+                    updateUserForm.controls['email'].touched &&
+                    updateUserForm.controls['email'].invalid
+                  "
+                  class="form-text text-danger"
+                >
+                  *Email Address is required
+                </small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputUsername" class="form-label"
+                  >Username</label
+                >
+                <input
+                  formControlName="username"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputUsername"
+                  placeholder="Enter your username"
+                  [class.is-invalid]="
+                    updateUserForm.controls['username'].touched &&
+                    updateUserForm.controls['username'].invalid
+                  "
+                />
+                <small
+                  *ngIf="
+                    updateUserForm.controls['username'].touched &&
+                    updateUserForm.controls['username'].invalid
+                  "
+                  class="form-text text-danger"
+                >
+                  *Username is required
+                </small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <div class="input-group">
+                  <input
+                    formControlName="password"
+                    [type]="type"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Enter your password"
+                    [class.is-invalid]="
+                    updateUserForm.controls['password'].touched &&
+                    updateUserForm.controls['password'].invalid
+                  "
+                  />
+
+                  <div class="input-group-append">
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary"
+                      (click)="hideShowPassword()"
+                    >
+                      <i class="fa" [ngClass]="eyeIcon"></i>
+                    </button>
+                  </div>
+                </div>
+                <small
+                  *ngIf="
+                    updateUserForm.controls['password'].dirty &&
+                    updateUserForm.hasError('required', 'password')
+                  "
+                  class="form-text text-danger"
+                >
+                  *Password is required
+                </small>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-block mt-4 w-100"
+              >
+                Update
+              </button>
+              <div class="text-center pt-4 text-muted">
+                Back to dashboard
+                <a id="forget" routerLink="/dashboard">Dashboard</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
